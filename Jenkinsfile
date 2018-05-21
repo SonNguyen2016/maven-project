@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'echo "Build stage"'
+                echo 'Build stage'
                 sh 'mvn clean package'
             }
             post {
@@ -13,14 +13,9 @@ pipeline {
                 }
             }
         }
-        stage('Test') {
+        stage('Deploy to staging') {
             steps {
-                sh 'echo "Test stage"'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                sh 'echo Deploy stage'
+                build job: 'deploy-to-staging'
             }
         }
     }
