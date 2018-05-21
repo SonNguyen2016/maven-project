@@ -8,8 +8,8 @@ pipeline {
             }
             post {
                 success {
-                echo 'Build is successful. Now archiving...'
-                archiveArtifacts artifacts: '**/target/*.war'
+                    echo 'Build is successful. Now archiving...'
+                    archiveArtifacts artifacts: '**/target/*.war'
                 }
             }
         }
