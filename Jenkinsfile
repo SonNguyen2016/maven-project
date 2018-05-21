@@ -5,11 +5,11 @@ pipeline {
             steps {
                 sh 'echo "Build stage"'
                 sh 'mvn clean package'
-                post {
-                    success {
-                        echo 'Build is successful. Now archiving...'
-                        archiveArtifacts artifacts: '**/target/*.war'
-                    }
+            }
+            post {
+                success {
+                echo 'Build is successful. Now archiving...'
+                archiveArtifacts artifacts: '**/target/*.war'
                 }
             }
         }
